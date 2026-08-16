@@ -9,8 +9,12 @@ The owner's general-purpose, canonical representation of entities, relationships
 _Avoid_: Memory system, knowledge graph (when referring to the whole system)
 
 **Accepted Understanding**:
-The owner's currently accepted account of some part of the world. It is revisable and is grounded in beliefs, evidence, and provenance rather than asserted as immutable objective fact.
+The Owner's currently accepted account of some part of the world, represented by explicit versioned Acceptance Records. It is revisable and grounded in Claims, Evidence, Decisions, and provenance rather than asserted as immutable objective fact.
 _Avoid_: Truth, fact
+
+**Acceptance Record**:
+An explicit, versioned Owner acceptance of an account of the world, pointing to the Claims and Decisions that support it.
+_Avoid_: Implicit current view, fact
 
 **Owner**:
 The single human authority who controls the World Model and its Accepted Understanding.
@@ -29,11 +33,19 @@ An agent-authored candidate addition or change to the World Model awaiting Owner
 _Avoid_: Accepted Understanding
 
 **Claim**:
-A revisable assertion about the world whose standing is supported or challenged by Evidence and reasoning.
+A revisable assertion about the world with required canonical text and optional structured subject, predicate, object, and qualifiers. Its standing is supported or challenged by Evidence and reasoning. A relationship is expressed as a structured Claim.
 _Avoid_: Decision
 
+**Canonical Entity**:
+A permanently identified, individually referable subject in the World Model: a real-world thing, abstract concept, event, plan, account, or document. It may carry zero or more revisable, provenance-bearing classifications.
+_Avoid_: Mutable identity, merged entity
+
+**Alias**:
+A human-oriented search or reference name whose append-only bindings resolve to a Canonical Entity. An Alias may be reassigned over time (for example, “my car”); a recorded reference resolves to the target canonical identifier, while the Alias and its binding history remain available as provenance.
+_Avoid_: Canonical identifier
+
 **Evidence**:
-A source artifact or recorded observation that bears on a Claim.
+A citable recorded extraction or observation, optionally locating a precise span in an immutable Source Artifact, that bears on a Claim.
 
 **Source Artifact**:
 The preserved text or external reference from which Evidence is derived. Initial support is text, including text that contains a URL.
@@ -42,5 +54,13 @@ The preserved text or external reference from which Evidence is derived. Initial
 A recorded choice among alternatives, including its rationale and consequences. A Decision may concern Claims but is distinct from them.
 
 **Supersession**:
-An append-only relationship by which later Accepted Understanding replaces an earlier understanding without erasing it.
+An append-only relationship by which a later record replaces an earlier record without erasing it. It is distinct from a challenge, which records competing epistemic standing. It also records changes to an Alias binding rather than changing prior references.
 _Avoid_: Edit, deletion
+
+**Same-as Link**:
+An append-only, discoverable relationship recording that two permanently identified Canonical Entities are understood to refer to the same subject. It does not merge or delete either entity or rewrite their histories.
+_Avoid_: Merge
+
+**Derivation**:
+A typed, reviewable relationship from a Proposal or other derived record to its input Claims, Evidence, Assumptions, and Decisions, accompanied by concise rationale.
+_Avoid_: Chain-of-thought
